@@ -13,5 +13,7 @@ jobs:
         uses: actions/setup-node@v1
       - name: Installing project dependencies
         run: npm install
+      - name: Install Highcharts
+        run: npm install highcharts
       - name: Building the project
         run: npm run build
