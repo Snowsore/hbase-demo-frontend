@@ -2,7 +2,7 @@ name: DEPLOY TO STAGING
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
