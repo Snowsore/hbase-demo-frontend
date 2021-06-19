@@ -9,9 +9,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Setup nodejs
+        uses: actions/setup-node@v1
+      - name: Installing project dependencies
+        run: npm install
+      - name: Install Highcharts
+        run: npm install highcharts
+      - name: Building the project
+        run: npm run build
+      - uses: papeloto/action-zip@v1
+        with:
+          files: dist/
+          dest: demo.zip
       - name: Release
         uses: softprops/action-gh-release@v1
+        with:
+          files: demo.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
