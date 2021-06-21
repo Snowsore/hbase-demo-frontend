@@ -1,24 +1,14 @@
 <template>
-    <div class='nav-bar'>
-        <div style='grid-column: 1 / span 4;'>
+    <div class='box'>
+        <div class='title'>
             <p>
-                人生又有什么东西那么值得去奋斗呢？
+                ¯\_(ツ)_/¯
             </p>
         </div>
-        <div style='grid-column: 5'>
-            <p>
-                自爆
-            </p>
-        </div>
-        <div style='grid-column: 6'>
-            <p>
-                退出
-            </p>
-        </div>
-        <div style='grid-column: 7'>
-            <p>
-                登录
-            </p>
+        <div class='menu'>
+            <a href='#'>
+                <svg id="Layer_1" enable-background="new 0 0 512 512" height="32" viewBox="0 0 512 512" width="32"><path d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z"/></svg>
+            </a>
         </div>
     </div>
 </template>
@@ -31,26 +21,19 @@ export default {
 
 <style scoped>
 
-.nav-bar {
-    position: absolute;
+.box {
 
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.103);
 
-    display: grid;
-    justify-content: space-evenly;
-    justify-items: center;
+    display: flex;
     align-content: space-evenly;
     align-items: center;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 60px;
 
     padding: 10px;
 }
 
-.nav-bar > div:not(:first-child) {
+.title {
     
-
-    background-color: #102E4A;
     border-radius: 10px;
 
     display: grid;
@@ -62,17 +45,15 @@ export default {
     width: 100%;
     padding: 9px;
 
-    
-    color: white;
     font-size: 1.1rem;
     font-weight: bold;
+    letter-spacing: 5px;
 
 }
 
-.nav-bar > div:first-child {
-    font-size: 1.1rem;
-    letter-spacing: 10px;
-
+.menu {
+    margin-top: 5px;
+    margin-right: 40px;
 }
 
 </style>

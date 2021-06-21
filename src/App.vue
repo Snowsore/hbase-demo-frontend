@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <Router id='router' :page='page'></Router>
-
+    <Navbar id='navbar'></Navbar>
     <Sidebar id='sidebar'></Sidebar>
-    <Navbar id='navbar' @goto='goto'></Navbar>
   </div>
 </template>
 
@@ -45,8 +44,8 @@ export default {
 
 html {
   overflow: hidden;
+  font-family: 'Microsoft YaHei';
 }
-
 </style>
 
 <style scoped>
@@ -57,24 +56,54 @@ body {
 }
 
 #sidebar {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 10%;
+  width: 15%;
   height: 100%;
 }
 
 #navbar {
+  position: absolute;
+  display: none;
   top: 0;
-  left: 10%;
+  left: 0;
   width: 100%;
-  height: 7%;
+  height: 5%;
 }
 
 #router {
-  top: 7%;
-  left: 10%;
-  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 85%;
   height: 93%;
+}
+
+@media screen and (max-width: 1280px) {
+
+  #sidebar {
+    position: absolute;
+    display: none;
+  }
+
+  #navbar {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+  }
+
+  #router {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 100%;
+    height: 95%;
+  }
+
 }
 
 </style>

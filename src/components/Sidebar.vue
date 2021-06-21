@@ -1,31 +1,38 @@
 <template>
 
-    <div class='side-bar'>
-        <div style='grid-row: span 2'>
-            <p>
-                ¯\_(ツ)_/¯
-            </p>
+    <div class='container'>
+
+        <div class='logo'>
+            (ツ)
         </div>
-        <div>
-            <p>
-                选择菜单
-            </p>
+
+        <div class='side-bar'>
+            <a href='#'>
+                大数据
+            </a>
+            <a href='#'>
+                都是
+            </a>
+            <a href='https://pornhub.com'>
+                虚拟的
+            </a>
+            <a href='#'>
+                你
+            </a>
+            <a href='#'>
+                把握
+            </a>
+            <a href='#'>
+                不住
+            </a>
         </div>
-        <div>
-            <p>
-                选项1
-            </p>
-        </div>
-        <div>
-            <p>
-                选项2
-            </p>
-        </div>
-        <div>
-            <p>
-                选项3
-            </p>
-        </div>
+
+        <p class='footer'>
+                此网页由Snowsore<br>
+                借鉴及抄袭<br>
+                如有疑问,请自己打飞机<br>
+        </p>
+    
     </div>
     
 </template>
@@ -39,41 +46,89 @@ export default {
 
 <style scoped>
 
-* {
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
+.container {
+    background-color: #102E4A;
+    
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    align-items: center;
+
+    padding: 0;
 }
 
 .side-bar {
-    position: absolute;
-    background-color: #102E4A;
 
     display: grid;
     justify-content: space-evenly;
     justify-items: center;
     align-content: space-evenly;
     align-items: center;
-    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: 1fr;
     grid-gap: 20px;
 
-    padding: 10px;
+    width: 80%;
+
 }
 
-.side-bar > div {
-    display: grid;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
+.side-bar > a {
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    font-size: 1.1rem;
 
     width: 100%;
     height: 100%;
 
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 
-    border-bottom: 1px solid #0000003f;
+    border-bottom: 1px solid #FFFFFF10;
+
+    color: #ffffffC0;
+    letter-spacing: 2px;
+
+    padding: 10px 0;
+
+    text-decoration: none;
+
+    transition: .3s all ease;
+
+}
+
+.side-bar > a:hover {
+    color: #FFFFFF30;
+}
+
+.logo {
+    display: grid;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+
+    color: #102E4A;
+    
+    font-weight: bolder;
+    font-size: 5rem;
+
+    background-color: #FFFFFF80;
+    border-radius: 50%;
+
+    height: 150px;
+    width: 150px;
+
+    margin: 50px;
+
+}
+
+.footer {
+
+    font-size: 0.8rem;
+
+    margin: 20px;
+    color: #FFFFFFA0;
+
+    width: 80%;
 }
 
 </style>
