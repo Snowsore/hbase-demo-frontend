@@ -7,13 +7,13 @@
         </div>
 
         <div class='side-bar'>
-            <a href='#'>
+            <a href='#' @click='$emit("goto", "index")'>
                 大数据
             </a>
-            <a href='#'>
+            <a href='#' @click='$emit("goto", "table")'>
                 都是
             </a>
-            <a href='https://pornhub.com'>
+            <a href='#'>
                 虚拟的
             </a>
             <a href='#'>
@@ -40,7 +40,6 @@
 <script>
 export default {
     name: 'Sidebar'
-    
 }
 </script>
 
@@ -116,6 +115,8 @@ export default {
 
     height: 150px;
     width: 150px;
+
+    padding-bottom: 15px;
 
     margin: 50px;
 

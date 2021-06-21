@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Router id='router' :page='page'></Router>
-    <Navbar id='navbar'></Navbar>
-    <Sidebar id='sidebar'></Sidebar>
+    <Navbar id='navbar' @goto='goto'></Navbar>
+    <Sidebar id='sidebar' @goto='goto'></Sidebar>
   </div>
 </template>
 
@@ -77,7 +77,7 @@ body {
   top: 0;
   left: 15%;
   width: 85%;
-  height: 93%;
+  height: 100%;
 }
 
 @media screen and (max-width: 1280px) {

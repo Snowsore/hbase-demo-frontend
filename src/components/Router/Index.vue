@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Gender from './Gender.vue'
-import Group from './Group.vue'
-import Personal from './Personal.vue'
+import Gender from './Index/Gender.vue'
+import Group from './Index/Group.vue'
+import Personal from './Index/Personal.vue'
 
 export default {
     name: 'Index',
@@ -53,6 +53,11 @@ export default {
     overflow: hidden;
 
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.226);
+
+    border: 10px solid #2d74bb;
+    border-radius: 20px;
+    border-style: outset;
+    background-color: #FFFFFFC0;
 }
 
 .gender {

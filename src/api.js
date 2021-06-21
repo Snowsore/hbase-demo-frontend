@@ -5,6 +5,9 @@ axios.defaults.baseURL = '/api'
 
 export default {
     async test() {
+        console.log('good')
+    },
+    async hello() {
         var res = await axios.get('/users/test')
         console.log(res.data)
     },
@@ -18,6 +21,10 @@ export default {
     },
     async getPersonal() {
         var res = await axios.get('/users/personal/1')
+        return res.data
+    },
+    async getDataTable() {
+        var res = await axios.get('/user/data')
         return res.data
     }
 }

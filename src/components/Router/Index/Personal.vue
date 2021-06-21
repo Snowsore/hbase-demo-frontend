@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import api from './api.js'
+import api from '@/api.js'
 
 export default {
     name: 'Index',
@@ -51,7 +51,6 @@ export default {
             var arr = []
             for([key, value] of Object.entries(data[0])) arr.push({key, value})
             this.data = arr
-            console.log('done')
         }
     }
     
