@@ -2,7 +2,8 @@
   <div id="app">
     <Router id='router' :page='page'></Router>
     <Navbar id='navbar' @goto='goto'></Navbar>
-    <Sidebar id='sidebar' @goto='goto'></Sidebar>
+    <Sidebar id='sidebar' @goto='goto' @pop='pop'></Sidebar>
+    <Login ref='login'></Login>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Router from './components/Router'
+import Login from './Pop/Login'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -30,11 +32,15 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    Router
+    Router,
+    Login
   },
   methods: {
     goto(page) {
       this.page = page
+    },
+    pop(page) {
+      this.$refs[page].pop()
     }
   }
 }

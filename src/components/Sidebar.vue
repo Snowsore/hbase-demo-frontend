@@ -2,9 +2,9 @@
 
     <div class='container'>
 
-        <div class='logo'>
+        <a href='#' @click='$emit("pop", "login")' class='logo'>
             (ツ)
-        </div>
+        </a>
 
         <div class='side-bar'>
             <a href='#' @click='$emit("goto", "index")'>
@@ -119,6 +119,8 @@ export default {
     padding-bottom: 15px;
 
     margin: 50px;
+
+    text-decoration: none;
 
 }
 

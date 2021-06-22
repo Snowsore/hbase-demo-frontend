@@ -1,15 +1,15 @@
 import axios from 'axios'
 import 'regenerator-runtime/runtime'
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = 'http://api.test.com:8080'
 
 export default {
     async test() {
         console.log('good')
     },
     async hello() {
-        var res = await axios.get('/users/test')
-        console.log(res.data)
+        var res = await axios.get('/users')
+        console.log(' - ', res.data)
     },
     async getGender() {
         var res = await axios.get('/users/gender')
@@ -26,5 +26,8 @@ export default {
     async getDataTable() {
         var res = await axios.get('/user/data')
         return res.data
+    },
+    async login(name, password) {
+        return axios.get(`/auth/login?name=${name}&passwd=${password}`)
     }
 }

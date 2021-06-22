@@ -51,12 +51,7 @@ module.exports = {
     noInfo: true,
     overlay: true,
     port: 80,
-    proxy: {
-      '/api': {
-        target: 'http://api.test.com',
-        pathRewrite: { '^/api': '' }
-      }
-    }
+    disableHostCheck: true,
   },
   performance: {
     hints: false

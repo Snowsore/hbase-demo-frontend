@@ -1,6 +1,6 @@
 <template>
 
-    <div class='container'>
+    <div class='box'>
         
       <v-simple-table>
         <template v-slot:default>

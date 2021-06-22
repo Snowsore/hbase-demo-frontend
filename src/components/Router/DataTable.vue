@@ -49,9 +49,10 @@
 import api from '@/api'
 
 export default {
-    name: 'table',
+    name: 'datatable',
     data() {
         return {
+            message: '',
             data: []
         }
     },
