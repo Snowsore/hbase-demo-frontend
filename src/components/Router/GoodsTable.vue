@@ -4,42 +4,30 @@
         <div class='dataTable'>
             <div class='header'>
                 <p>
-                    User Table
+                    Goods Table
                 </p>
             </div>
             <div class='body'>
-                <input v-model="message" placeholder="Page number ?">
+                <input v-model="message" placeholder="edit me">
                 <v-simple-table>
                     <template v-slot:default>
                         <thead>
                         <tr>
                             <th class="text-left">
-                                序号
+                                Key
                             </th>
                             <th class="text-left">
-                                唯一标识符
-                            </th>
-                            <th class="text-left">
-                                性别
-                            </th>
-                            <th class="text-left">
-                                邮件
-                            </th>
-                            <th class="text-left">
-                                姓名
+                                Value
                             </th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr
                             v-for="i in data"
-                            :key="i.id"
+                            :key="i.key"
                         >
-                            <td>{{ i.index }}</td>
-                            <td>{{ i.id }}</td>
-                            <td>{{ i.gender }}</td>
-                            <td>{{ i.email }}</td>
-                            <td>{{ i.username }}</td>
+                            <td>{{ i.key }}</td>
+                            <td>{{ i.value }}</td>
                         </tr>
                         </tbody>
                     </template>
@@ -65,8 +53,7 @@ export default {
     data() {
         return {
             message: '',
-            data: [],
-            page: 1
+            data: []
         }
     },
     mounted() {
@@ -74,7 +61,11 @@ export default {
     },
     methods: {
         async refresh() {
-            this.data = await api.getUsersList(this.page)
+            var data = await api.getGoodsList()
+            var arr = []
+            for([key, value] of Object.entries(data[0])) arr.push({key, value})
+            console.log(arr)
+            this.data = arr
         }
     }
 }
@@ -136,12 +127,7 @@ export default {
 .body input {
     border: 1px solid black;
 
-    width: 90%;
-
-    padding: 10px;
-    margin: 10px;
-
-    background-color: white;
+    width: 100%;
 }
 
 .footer {

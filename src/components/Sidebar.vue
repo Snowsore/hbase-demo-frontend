@@ -8,22 +8,13 @@
 
         <div class='side-bar'>
             <a href='#' @click='$emit("goto", "index")'>
-                大数据
+                个人信息
             </a>
             <a href='#' @click='$emit("goto", "table")'>
-                都是
+                用户数据
             </a>
-            <a href='#'>
-                虚拟的
-            </a>
-            <a href='#'>
-                你
-            </a>
-            <a href='#'>
-                把握
-            </a>
-            <a href='#'>
-                不住
+            <a href='#' @click='$emit("goto", "goods")'>
+                商品数据
             </a>
         </div>
 

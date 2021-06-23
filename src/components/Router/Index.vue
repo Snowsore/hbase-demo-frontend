@@ -73,6 +73,7 @@ export default {
 
 .personal {
     grid-column: 3 / span 2;
+    grid-row: 1 / span 7;
 }
 
 </style>

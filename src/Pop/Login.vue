@@ -18,6 +18,7 @@
                 <v-text-field
                     ref="Password"
                     v-model="password"
+                    type="password"
                     label="Password"
                     required
                 ></v-text-field>

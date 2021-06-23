@@ -20,11 +20,15 @@ export default {
         return res.data
     },
     async getPersonal() {
-        var res = await axios.get('/users/personal/1')
+        var res = await axios.get('/users/user/1')
         return res.data
     },
-    async getDataTable() {
-        var res = await axios.get('/user/data')
+    async getUsersList(page) {
+        var res = await axios.get(`/users/filter?page=${page}`)
+        return res.data
+    },
+    async getGoodsList(page) {
+        var res = await axios.get(`/goods/filter?page=${page}`)
         return res.data
     },
     async login(name, password) {
