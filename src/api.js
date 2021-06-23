@@ -1,7 +1,7 @@
 import axios from 'axios'
 import 'regenerator-runtime/runtime'
 
-axios.defaults.baseURL = 'http://api.test.com:8080'
+axios.defaults.baseURL = '/api'
 
 export default {
     async test() {
