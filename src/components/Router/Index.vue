@@ -3,7 +3,7 @@
     <div class='grid'>
         <div class='gender'><Gender></Gender></div>
         <div class='group'><Group></Group></div>
-        <div class='personal'><Personal></Personal></div>
+        <div class='orderGroup'><OrderGroup></OrderGroup></div>
     </div>
     
 </template>
@@ -11,7 +11,7 @@
 <script>
 import Gender from './Index/Gender.vue'
 import Group from './Index/Group.vue'
-import Personal from './Index/Personal.vue'
+import OrderGroup from './Index/OrderGroup'
 
 export default {
     name: 'Index',
@@ -23,7 +23,7 @@ export default {
     components: {
         Gender,
         Group,
-        Personal
+        OrderGroup
     },
     
 }
@@ -57,7 +57,7 @@ export default {
     border: 10px solid #2d74bb;
     border-radius: 20px;
     border-style: outset;
-    background-color: #FFFFFFC0;
+    background-color: white;
 }
 
 .gender {
@@ -67,13 +67,13 @@ export default {
 }
 
 .group {
-    grid-row: 3 / span 2;
-    grid-column: span 2;
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
 }
 
-.personal {
-    grid-column: 3 / span 2;
-    grid-row: 1 / span 7;
+.orderGroup {
+    grid-row: 3 / span 2;
+    grid-column: span 4;
 }
 
 </style>

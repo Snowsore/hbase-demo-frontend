@@ -16,12 +16,10 @@ export default {
             show:false,
             chartOptions: {
                 chart: {
-                    type: 'column',
-                    width: '600',
-                    height: '400',
+                    width: '1000',
                 },
                 title: {
-                    text: '用户类型分布'
+                    text: '电子支付方式 - 人数分布'
                 },
                 xAxis: {
                     type: 'category',
@@ -33,11 +31,16 @@ export default {
                         }
                     }
                 },
+                yAxis: {
+                    title: {
+                        text: '使用人数'
+                    }
+                },
                 legend: {
                     enabled: false
                 },
                 series: [{
-                    name: 'Population',
+                    name: '',
                     data: [],
                     dataLabels: {
                         enabled: true,
@@ -62,9 +65,9 @@ export default {
             this.refresh()
         },
         async refresh() {
-            var data = await api.getGroup()
+            var data = await api.getOrderGroup()
 
-            data = data.filter(x => x.describe == 'job')
+            data = data.filter(x => x.describe == 'paymentName')
             data = data.map(x => ({
                 name: x.key,
                 y: parseInt(x.value)

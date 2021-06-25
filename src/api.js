@@ -19,6 +19,10 @@ export default {
         var res = await axios.get('/users/group')
         return res.data
     },
+    async getOrderGroup() {
+        var res = await axios.get('/orders/group')
+        return res.data
+    },
     async getUsers(id) {
         var res = await axios.get(`/users/user/${id}`)
         return res.data
