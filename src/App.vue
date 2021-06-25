@@ -15,11 +15,22 @@ import Login from './Pop/Login'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import HighchartsVue from 'highcharts-vue'
 import 'vuetify/dist/vuetify.min.css'
-
 Vue.use(Vuetify)
+
+import HighchartsVue from 'highcharts-vue'
 Vue.use(HighchartsVue)
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 export default {
   name: 'app',

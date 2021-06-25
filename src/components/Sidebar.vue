@@ -16,6 +16,12 @@
             <a href='#' @click='$emit("goto", "goods")'>
                 商品数据
             </a>
+            <a href='#' @click='$emit("goto", "orders")'>
+                订单数据
+            </a>
+            <a href='#' @click='$emit("goto", "logs")'>
+                日志
+            </a>
         </div>
 
         <p class='footer'>

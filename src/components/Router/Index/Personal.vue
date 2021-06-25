@@ -47,7 +47,7 @@ export default {
             this.refresh()
         },
         async refresh() {
-            var data = await api.getPersonal()
+            var data = await api.getUsers(1)
             var arr = []
             for([key, value] of Object.entries(data[0])) arr.push({key, value})
             this.data = arr

@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class='body'>
-                <input v-model="message" placeholder="Page number ?">
+                <input v-model="query" @change='refresh' placeholder="Page number ?">
                 <v-simple-table>
                     <template v-slot:default>
                         <thead>
@@ -28,6 +28,9 @@
                             <th class="text-left">
                                 姓名
                             </th>
+                            <th class="text-left">
+                                详细
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,6 +43,37 @@
                             <td>{{ i.gender }}</td>
                             <td>{{ i.email }}</td>
                             <td>{{ i.username }}</td>
+                            <td>
+                                <div>
+                                    <b-button @click='pop(i.id)'>详细</b-button>
+                                </div>
+
+                                <b-modal :id='i.id' title="User info">
+                                    <v-simple-table>
+                                        <template v-slot:default>
+                                            <thead>
+                                            <tr>
+                                                <th class="text-left">
+                                                    Key
+                                                </th>
+                                                <th class="text-left">
+                                                    Value
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr
+                                                v-for="i in user"
+                                                :key="i.id"
+                                            >
+                                                <td>{{ i.key }}</td>
+                                                <td>{{ i.value }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </template>
+                                    </v-simple-table>
+                                </b-modal>
+                            </td>
                         </tr>
                         </tbody>
                     </template>
@@ -66,7 +100,9 @@ export default {
         return {
             message: '',
             data: [],
-            page: 1
+            query: 'page=1',
+            id: '',
+            user: []
         }
     },
     mounted() {
@@ -74,7 +110,16 @@ export default {
     },
     methods: {
         async refresh() {
-            this.data = await api.getUsersList(this.page)
+            this.data = await api.getUsersList(this.query)
+        },
+        async pop(id) {
+            var data = await api.getUsers(id)
+            data = Object.entries(data[0]).map(x => ({
+                key: x[0],
+                value: x[1]
+            }))
+            this.user = data
+            this.$bvModal.show(id)
         }
     }
 }

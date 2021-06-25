@@ -19,19 +19,34 @@ export default {
         var res = await axios.get('/users/group')
         return res.data
     },
-    async getPersonal() {
-        var res = await axios.get('/users/user/1')
+    async getUsers(id) {
+        var res = await axios.get(`/users/user/${id}`)
         return res.data
     },
-    async getUsersList(page) {
-        var res = await axios.get(`/users/filter?page=${page}`)
+    async getOrders(id) {
+        var res = await axios.get(`/orders/order/${id}`)
         return res.data
     },
-    async getGoodsList(page) {
-        var res = await axios.get(`/goods/filter?page=${page}`)
+    async getLogs(id) {
+        var res = await axios.get(`/logs/log/${id}`)
+        return res.data
+    },
+    async getGoods(id) {
+        var res = await axios.get(`/goods/good/${id}`)
+        return res.data
+    },
+    async getUsersList(query) {
+        var res = await axios.get(`/users/filter?${query}`)
+        return res.data
+    },
+    async getGoodsList(query) {
+        var res = await axios.get(`/goods/filter?${query}`)
         return res.data
     },
     async login(name, password) {
         return axios.get(`/auth/login?name=${name}&passwd=${password}`)
+    },
+    async aaaaaaaaaaaaaaaaaaaa() {
+
     }
 }

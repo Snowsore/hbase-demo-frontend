@@ -64,8 +64,6 @@ export default {
             var femaleCount = data[1].count
             var sum = maleCount + femaleCount
 
-            api.hello()
-
             this.chartOptions.series[0].data = [{
                 name: '男',
                 y: maleCount / sum * 10,

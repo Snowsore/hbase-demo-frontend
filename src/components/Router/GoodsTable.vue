@@ -4,30 +4,76 @@
         <div class='dataTable'>
             <div class='header'>
                 <p>
-                    Goods Table
+                    User Table
                 </p>
             </div>
             <div class='body'>
-                <input v-model="message" placeholder="edit me">
+                <input v-model="query" @change='refresh' placeholder="Page number ?">
                 <v-simple-table>
                     <template v-slot:default>
                         <thead>
                         <tr>
                             <th class="text-left">
-                                Key
+                                序号
                             </th>
                             <th class="text-left">
-                                Value
+                                唯一标识符
+                            </th>
+                            <th class="text-left">
+                                产品ID
+                            </th>
+                            <th class="text-left">
+                                商品名称
+                            </th>
+                            <th class="text-left">
+                                商品类型
+                            </th>
+                            <th class="text-left">
+                                详细
                             </th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr
                             v-for="i in data"
-                            :key="i.key"
+                            :key="i.id"
                         >
-                            <td>{{ i.key }}</td>
-                            <td>{{ i.value }}</td>
+                            <td>{{ i.index }}</td>
+                            <td>{{ i.productId }}</td>
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.productName }}</td>
+                            <td>{{ i.productType }}</td>
+                            <td>
+                                <div>
+                                    <b-button @click='pop(i.id)'>详细</b-button>
+                                </div>
+
+                                <b-modal :id='i.id' title="User info">
+                                    <v-simple-table>
+                                        <template v-slot:default>
+                                            <thead>
+                                            <tr>
+                                                <th class="text-left">
+                                                    Key
+                                                </th>
+                                                <th class="text-left">
+                                                    Value
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr
+                                                v-for="i in user"
+                                                :key="i.id"
+                                            >
+                                                <td>{{ i.key }}</td>
+                                                <td>{{ i.value }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </template>
+                                    </v-simple-table>
+                                </b-modal>
+                            </td>
                         </tr>
                         </tbody>
                     </template>
@@ -53,7 +99,10 @@ export default {
     data() {
         return {
             message: '',
-            data: []
+            data: [],
+            query: 'page=1',
+            id: '',
+            user: []
         }
     },
     mounted() {
@@ -61,11 +110,16 @@ export default {
     },
     methods: {
         async refresh() {
-            var data = await api.getGoodsList()
-            var arr = []
-            for([key, value] of Object.entries(data[0])) arr.push({key, value})
-            console.log(arr)
-            this.data = arr
+            this.data = await api.getGoodsList(this.query)
+        },
+        async pop(id) {
+            var data = await api.getGoods(id)
+            data = Object.entries(data[0]).map(x => ({
+                key: x[0],
+                value: x[1]
+            }))
+            this.user = data
+            this.$bvModal.show(id)
         }
     }
 }
@@ -127,7 +181,12 @@ export default {
 .body input {
     border: 1px solid black;
 
-    width: 100%;
+    width: 90%;
+
+    padding: 10px;
+    margin: 10px;
+
+    background-color: white;
 }
 
 .footer {
