@@ -2,8 +2,8 @@
   <div id="app">
     <Router id='router' :page='page'></Router>
     <Navbar id='navbar' @goto='goto'></Navbar>
-    <Sidebar id='sidebar' @goto='goto' @pop='pop'></Sidebar>
-    <Login ref='login'></Login>
+    <Sidebar id='sidebar' :user='user' @goto='goto' @pop='pop'></Sidebar>
+    <Login @login='login' ref='login'></Login>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Router from './components/Router'
 import Login from './Pop/Login'
+import api from '@/api.js'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -37,7 +38,8 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      page: 'index'
+      page: 'index',
+      user: '',
     }
   },
   components: {
@@ -46,12 +48,24 @@ export default {
     Router,
     Login
   },
+  mounted() {
+    this.checkLogin()
+  },
   methods: {
     goto(page) {
       this.page = page
     },
     pop(page) {
-      this.$refs[page].pop()
+      if(!this.user) {
+        this.$refs[page].pop()
+      }
+    },
+    login(name) {
+      this.user = name
+    },
+    async checkLogin() {
+      var data = await api.isLogin()
+      this.user = data.name
     }
   }
 }

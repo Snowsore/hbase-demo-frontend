@@ -7,6 +7,9 @@
         </a>
 
         <div class='side-bar'>
+            <p v-if='user'>
+                你好 {{ user }}
+            </p>
             <a href='#' @click='$emit("goto", "index")'>
                 个人信息
             </a>
@@ -25,9 +28,10 @@
         </div>
 
         <p class='footer'>
-                此网页由Snowsore<br>
+                此网页由 Snowsore<br>
                 借鉴及抄袭<br>
-                如有疑问,请自己打飞机<br>
+                如有疑问,请自己买杯奶茶<br>
+                也许已经三点钟了
         </p>
     
     </div>
@@ -36,7 +40,10 @@
 
 <script>
 export default {
-    name: 'Sidebar'
+    name: 'Sidebar',
+    props: [
+        'user'
+    ]
 }
 </script>
 
@@ -89,6 +96,11 @@ export default {
 
     transition: .3s all ease;
 
+}
+
+.side-bar > p {
+    color: #ffffffc0;
+    font-size: 1.2rem;
 }
 
 .side-bar > a:hover {

@@ -2,7 +2,7 @@
 
     <div v-if='show' class='box'>
 
-        <v-row class='card' justify="center">
+        <v-row class='cardd' justify="center">
             <v-col
             cols="12"
             >
@@ -67,6 +67,7 @@ export default {
         },
         async submit() {
             api.login(this.name, this.password).then(res => {
+                this.$emit('login', this.name)
                 this.show = false;
                 this.name = '';
                 this.password = '';
@@ -94,7 +95,7 @@ export default {
     height: 100%;
 }
 
-.card {
+.cardd {
     width: 400px;
     height: 500px;
 
@@ -103,6 +104,8 @@ export default {
     grid-template-rows: 50px 1fr 40px;
 
     padding: 10px;
+
+    background-colro: #FFFFFF00;
 }
 
 .header {

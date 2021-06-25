@@ -50,7 +50,8 @@ export default {
     async login(name, password) {
         return axios.get(`/auth/login?name=${name}&passwd=${password}`)
     },
-    async aaaaaaaaaaaaaaaaaaaa() {
-
+    async isLogin() {
+        var res = await axios.get('/auth')
+        return res.data
     }
 }
