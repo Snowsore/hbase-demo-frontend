@@ -25,6 +25,9 @@
             <a href='#' @click='$emit("goto", "logs")'>
                 日志
             </a>
+            <a href='#' @click='$emit("goto", "logs")'>
+                自爆
+            </a>
         </div>
 
         <p class='footer'>
