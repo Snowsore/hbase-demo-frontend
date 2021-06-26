@@ -110,7 +110,7 @@ body {
   width: 85%;
   height: 100%;
 }
-
+/* 
 @media screen and (max-width: 1280px) {
 
   #sidebar {
@@ -136,5 +136,6 @@ body {
   }
 
 }
+*/
 
 </style>
