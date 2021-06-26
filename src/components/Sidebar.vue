@@ -25,7 +25,7 @@
             <a href='#' @click='$emit("goto", "logs")'>
                 日志
             </a>
-            <a href='#' @click='$emit("goto", "logs")'>
+            <a href='#' @click='$emit("goto", "nihao")'>
                 自爆
             </a>
         </div>
