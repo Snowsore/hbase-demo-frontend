@@ -118,7 +118,8 @@ export default {
             data: [],
             query: 'page=1',
             id: '',
-            user: []
+            user: [],
+            good:'good'
         }
     },
     mounted() {
