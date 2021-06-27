@@ -29,6 +29,12 @@
                                 姓名
                             </th>
                             <th class="text-left">
+                                订单
+                            </th>
+                            <th class="text-left">
+                                记录
+                            </th>
+                            <th class="text-left">
                                 详细
                             </th>
                         </tr>
@@ -43,6 +49,16 @@
                             <td>{{ i.gender }}</td>
                             <td>{{ i.email }}</td>
                             <td>{{ i.username }}</td>
+                            <td>
+                                <div>
+                                    <b-button @click='order(i.id)'>订单</b-button>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <b-button @click='log(i.id)'>记录</b-button>
+                                </div>
+                            </td>
                             <td>
                                 <div>
                                     <b-button @click='pop(i.id)'>详细</b-button>
@@ -114,6 +130,24 @@ export default {
         },
         async pop(id) {
             var data = await api.getUsers(id)
+            data = Object.entries(data[0]).map(x => ({
+                key: x[0],
+                value: x[1]
+            }))
+            this.user = data
+            this.$bvModal.show(id)
+        },
+        async order(id) {
+            var data = await api.getOrders(id)
+            data = Object.entries(data[0]).map(x => ({
+                key: x[0],
+                value: x[1]
+            }))
+            this.user = data
+            this.$bvModal.show(id)
+        },
+        async log(id) {
+            var data = await api.getLogs(id)
             data = Object.entries(data[0]).map(x => ({
                 key: x[0],
                 value: x[1]
